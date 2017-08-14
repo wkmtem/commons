@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 
  * @Class Name: SosoApiFilter
- * @Description: SosoApi调试, App接口JSON过滤器，在web.xml中配置拦截
+ * @Description: SosoApi调试, App接口JSON过滤器，在web.xml中配置过滤
  * @author: wkm
  * @Company: www.compass.com
  * @Create date: 2017年8月14日下午4:03:56
