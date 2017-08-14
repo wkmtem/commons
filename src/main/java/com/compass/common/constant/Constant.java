@@ -12,5 +12,8 @@ public class Constant {
 
 	// 日期时间格式
 	public final static String DATE_FORMAT_DATETIME = "yyyy-MM-dd HH:mm:ss";
+	public final static String DATE_FORMAT_DATE = "yyyy-MM-dd";
+	public final static String DATE_FORMAT_MONTH = "yyyy-MM";
+	public final static String DATE_FORMAT_TIME = "HH:mm:ss";
 
 }
