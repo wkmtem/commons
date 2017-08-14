@@ -1,4 +1,4 @@
-package com.compass.common.session;
+package com.compass.api.session;
 
 import java.io.Serializable;
 
