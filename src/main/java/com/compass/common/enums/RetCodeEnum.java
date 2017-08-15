@@ -2,12 +2,12 @@ package com.compass.common.enums;
 
 /**
  * 
- * @Class Name: RetCodeEnum
- * @Description: 
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年7月27日下午7:48:59
- * @version: 2.0
+ * <p>Class Name: RetCodeEnum</p>
+ * <p>Description: 响应代码描述枚举</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午12:23:11
+ * @version 2.0
  */
 public enum RetCodeEnum {
 	

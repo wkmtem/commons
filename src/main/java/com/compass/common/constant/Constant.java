@@ -1,12 +1,13 @@
 package com.compass.common.constant;
 
 /**
- * @Class Name: SysConstant
- * @Description: 系统常量
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2016-11-17下午2:26:01
- * @version: 2.0
+ * 
+ * <p>Class Name: Constant</p>
+ * <p>Description: 一方库常量</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午12:13:37
+ * @version 2.0
  */
 public class Constant {
 

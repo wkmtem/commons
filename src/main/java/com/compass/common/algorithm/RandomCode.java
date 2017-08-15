@@ -4,12 +4,12 @@ import java.util.Random;
 
 /**
  * 
- * @Class Name: RandomCode
- * @Description: 按一定的概率生成一个随机的N位(N>=3)Code
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年8月9日下午11:03:53
- * @version: 2.0
+ * <p>Class Name: RandomCode</p>
+ * <p>Description: 按一定的概率生成>=3位的随机码</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日上午11:56:00
+ * @version 2.0
  */
 public class RandomCode {
 	
@@ -17,18 +17,25 @@ public class RandomCode {
     private static final byte INDEX_LETTER = 1;
     private static final byte INDEX_SPECIAL_CHAR = 2;
 
-    /** 特殊符号 */
+    /**
+     * 特殊符号
+     */
     private static final char[] SPECIAL_CHARS = {
     	'`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', 
     	')', '-', '_', '=', '+', '[', ']', '{', '}', '\\', '|', 
     	';', ':', '\'', '"', ',', '<', '.', '>', '/', '?' };
 
     /**
-     * 按一定的概率生成一个随机的N位(N>=3)密码，必须由字母数字特殊符号组成，三者缺一不可
      * 
-     * @param len 密码长度,必须大于等于3
-     * @param genChances 分别是生成数字、字母、特殊符号的概率
-     * @return 生成的随机密码
+     * <p>Method Name: generateRandomCode</p>
+     * <p>Description: 按一定的概率生成>=3位的随机码，由字母数字特殊符号组成，三者缺一不可</p>
+     * @author wkm
+     * @date 2017年8月15日上午11:57:33
+     * @version 2.0
+     * @param len 随机码长度,必须大于等于3
+     * @param paramGenChances 依次是数字、字母、特殊符号的概率
+     * @return code 生成的随机码
+     * @throws IllegalArgumentException
      */
     public static char[] generateRandomCode(final int len, final byte[] paramGenChances) 
     		throws IllegalArgumentException {
@@ -76,12 +83,16 @@ public class RandomCode {
     
 
     /**
-     * 根据当前需要生成密码字符的位置,动态调整生成概率
      * 
+     * <p>Method Name: adjustGenChance</p>
+     * <p>Description: 根据当前需要生成随机码字符的位置,动态调整生成概率</p>
+     * @author wkm
+     * @date 2017年8月15日下午12:00:37
+     * @version 2.0
      * @param len 待生成的总长度
      * @param index 当前位置
-     * @param genChances 分别是生成数字、字母、特殊符号的概率
-     * @param genNums 这些类型已经生成过的次数
+     * @param genChances 依次是生成数字、字母、特殊符号的概率
+     * @param genNums 数字、字母、特殊符号已经生成过的次数
      */
     private static void adjustGenChance(final int len, final int index, final byte[] genChances, final byte[] genNums) {
         final int leftCount = len - index;
@@ -102,11 +113,15 @@ public class RandomCode {
     
 
     /**
-     * 获取该密码字符的类型
      * 
+     * <p>Method Name: getCodeCharType</p>
+     * <p>Description: 获取该密码字符的类型</p>
+     * @author wkm
+     * @date 2017年8月15日下午12:02:23
+     * @version 2.0
      * @param random 随机数生成器
-     * @param genChances 分别是生成数字、字母、特殊符号的概率
-     * @return 密码字符的类型
+     * @param genChances 依次是生成数字、字母、特殊符号的概率
+     * @return 随机码字符的类型
      */
     private static byte getCodeCharType(final Random random, final byte[] genChances) {
         int total = 0;
@@ -126,13 +141,12 @@ public class RandomCode {
 
     /**
      * 
-     * @Method Name: logChances
-     * @Description: 打印生成密码中各类字符的个数
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年8月13日下午12:11:26
-     * @param genNums:
+     * <p>Method Name: logChances</p>
+     * <p>Description: 控制台输出随机码中各类字符的个数</p>
+     * @author wkm
+     * @date 2017年8月15日下午12:03:18
+     * @version 2.0
+     * @param genNums 计数器
      */
     private static void logChances(byte[] genNums) {
         StringBuilder sb = new StringBuilder();

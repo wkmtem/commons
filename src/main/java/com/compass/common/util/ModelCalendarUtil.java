@@ -4,12 +4,12 @@ import java.util.Calendar;
 
 /**
  * 
- * @Class Name: ModelCalendarUtil
- * @Description: 模块化calendar的类，封装了一些常用的方法
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年3月23日上午10:26:13
- * @version: 2.0
+ * <p>Class Name: ModelCalendarUtil</p>
+ * <p>Description: Calendar模块化工具类，封装了一些常用的方法</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午2:19:50
+ * @version 2.0
  */
 public class ModelCalendarUtil {
 
@@ -26,9 +26,11 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Construction Name: 
-     * @Description: 当前年月
-     * @Create date: 2017年3月23日下午1:15:24
+     * <p>Constructor Name: ModelCalendarUtil</p>
+     * <p>Description: 初始化年、月</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:20:37
+     * @version 2.0
      */
     public ModelCalendarUtil() {
         mYear = mCalendar.get(Calendar.YEAR);
@@ -38,11 +40,13 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Construction Name: 
-     * @Description: 指定年月
-     * @Create date: 2017年3月23日下午1:15:51
-     * @param year
-     * @param month: 月份-1
+     * <p>Constructor Name: ModelCalendarUtil</p>
+     * <p>Description: 指定年、月</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:21:18
+     * @version 2.0
+     * @param year 指定年份yyyy
+     * @param month 指定月份0-11
      */
     public ModelCalendarUtil(int year, int month) {
         mYear = year;
@@ -52,12 +56,11 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: initCalendarUtil
-     * @Description: 初始化:日历日期为月初
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:27:35:
+     * <p>Method Name: initCalendarUtil</p>
+     * <p>Description: 初始化月的第1天</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:21:43
+     * @version 2.0
      */
     private void initCalendarUtil() {
         mCalendar.set(mYear, mMonth, 1);
@@ -65,13 +68,12 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getFirstDayWeek
-     * @Description: 获取当前月第1天的星期
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:27:47
-     * @return:
+     * <p>Method Name: getFirstDayWeek</p>
+     * <p>Description: 获取当前月第1天的星期</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:22:21
+     * @version 2.0
+     * @return 星期1-7
      */
     public int getFirstDayWeek() {
         int firstDayWeek;
@@ -81,19 +83,18 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getFirstDayWeek
-     * @Description: 重载：获取指定月第1天的星期
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:28:22
-     * @param addMonth
-     * @return:
+     * <p>Method Name: getFirstDayWeek</p>
+     * <p>Description: 获取指定月第1天的星期</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:24:38
+     * @version 2.0
+     * @param defMonth 指定月份0-11
+     * @return 星期1-7
      */
-    public int getFirstDayWeek(int addMonth) {
+    public int getFirstDayWeek(int defMonth) {
         int firstDayWeek;
-        if (addMonth != 0) {
-            mCalendar.add(Calendar.MONTH, addMonth);
+        if (defMonth != 0) {
+            mCalendar.add(Calendar.MONTH, defMonth);
             firstDayWeek = getFirstDayWeek();
             initCalendarUtil();
         } else {
@@ -104,13 +105,12 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getLastDayWeek
-     * @Description: 获取当前月最后1天的星期
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:29:21
-     * @return:
+     * <p>Method Name: getLastDayWeek</p>
+     * <p>Description: 获取当前月最后1天的星期</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:29:24
+     * @version 2.0
+     * @return 星期1-7
      */
     public int getLastDayWeek() {
         int lastDayWeek;
@@ -122,19 +122,18 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getLastDayWeek
-     * @Description: 重载：获取指定月最后1天的星期
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:30:33
-     * @param addMonth
-     * @return:
+     * <p>Method Name: getLastDayWeek</p>
+     * <p>Description: 获取指定月最后1天的星期</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:29:42
+     * @version 2.0
+     * @param defMonth 指定月份0-11
+     * @return 星期1-7
      */
-    public int getLastDayWeek(int addMonth) {
+    public int getLastDayWeek(int defMonth) {
         int lastDayWeek;
-        if (addMonth != 0) {
-            mCalendar.add(Calendar.MONTH, addMonth);
+        if (defMonth != 0) {
+            mCalendar.add(Calendar.MONTH, defMonth);
         }
         lastDayWeek = getLastDayWeek();
         return lastDayWeek;
@@ -142,20 +141,18 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDayWeek
-     * @Description: 获取当前月指定号的星期
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:32:08
-     * @param day
-     * @return:
+     * <p>Method Name: getDayWeek</p>
+     * <p>Description: 获取当前月指定号的星期</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:30:13
+     * @version 2.0
+     * @param day 指定日期1-31
+     * @return 星期1-7
      */
     public int getDayWeek(int day) {
         int dayWeek;
         if (day != 0) {
             mCalendar.set(mYear, mMonth, day);
-            // mCalendar.add(Calendar.DAY_OF_MONTH, day);
             dayWeek = mCalendar.get(Calendar.DAY_OF_WEEK);
             initCalendarUtil();
         } else {
@@ -166,13 +163,12 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDays
-     * @Description: 获取当前月天数
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:32:35
-     * @return:
+     * <p>Method Name: getDays</p>
+     * <p>Description: 获取当前月天数</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:30:54
+     * @version 2.0
+     * @return 天数28-31
      */
     public int getDays() {
         int days;
@@ -182,19 +178,18 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDays
-     * @Description: 重载：获取指定月的天数
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:32:47
-     * @param addMonth
-     * @return:
+     * <p>Method Name: getDays</p>
+     * <p>Description: 获取指定月的天数</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:31:27
+     * @version 2.0
+     * @param defMonth 指定月份0-11
+     * @return 天数28-31
      */
-    public int getDays(int addMonth) {
+    public int getDays(int defMonth) {
         int days;
-        if (addMonth != 0) {
-            mCalendar.add(Calendar.MONTH, addMonth);
+        if (defMonth != 0) {
+            mCalendar.add(Calendar.MONTH, defMonth);
             days = getDays();
             initCalendarUtil();
         } else {
@@ -205,14 +200,13 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getWeekOfMonth
-     * @Description: 获取当前月中第几周
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:34:08
-     * @param day
-     * @return:
+     * <p>Method Name: getWeekOfMonth</p>
+     * <p>Description: 获取指定日期是当前月中是第几周</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:31:47
+     * @version 2.0
+     * @param day 指定日期1-31
+     * @return 周数1-5
      */
     public int getWeekOfMonth(int day) {
         int weekOfMonth;
@@ -228,21 +222,20 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getWeekOfMonth
-     * @Description: 重载：获取指定月中第几周
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:34:49
-     * @param addMonth
-     * @param day
-     * @return:
+     * <p>Method Name: getWeekOfMonth</p>
+     * <p>Description: 获取指定日期在指定月中是第几周</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:32:18
+     * @version 2.0
+     * @param defMonth 指定月份0-11
+     * @param day 指定日期1-31
+     * @return 周数1-5
      */
-    public int getWeekOfMonth(int addMonth, int day) {
+    public int getWeekOfMonth(int defMonth, int day) {
         int weekOfMonth;
         mCalendar.set(mYear, mMonth, day);
-        if (addMonth != 0) {
-            mCalendar.add(Calendar.MONTH, addMonth);
+        if (defMonth != 0) {
+            mCalendar.add(Calendar.MONTH, defMonth);
             weekOfMonth = mCalendar.get(Calendar.WEEK_OF_MONTH);
             initCalendarUtil();
         } else {
@@ -253,13 +246,12 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDayOfYear
-     * @Description: 获取当前年中第几天
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:35:38
-     * @return:
+     * <p>Method Name: getDayOfYear</p>
+     * <p>Description: 获取当前年中第几天</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:32:40
+     * @version 2.0
+     * @return 天数1-366
      */
     public int getDayOfYear() {
         int days;
@@ -269,19 +261,18 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDayOfYear
-     * @Description: 重载：获取指定年中第几天
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:36:14
-     * @param addYear
-     * @return:
+     * <p>Method Name: getDayOfYear</p>
+     * <p>Description: 获取指定年中第几天</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:33:03
+     * @version 2.0
+     * @param defYear 指定年份yyyy
+     * @return 1-366
      */
-    public int getDayOfYear(int addYear) {
+    public int getDayOfYear(int defYear) {
         int days;
-        if (addYear != 0) {
-            mCalendar.add(Calendar.YEAR, addYear);
+        if (defYear != 0) {
+            mCalendar.add(Calendar.YEAR, defYear);
             days = mCalendar.get(Calendar.DAY_OF_YEAR);
             initCalendarUtil();
         } else {
@@ -292,13 +283,12 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDaysInYear
-     * @Description: 获取当前年的天数
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:37:01
-     * @return:
+     * <p>Method Name: getDaysInYear</p>
+     * <p>Description: 获取当前年的天数</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:43:10
+     * @version 2.0
+     * @return 天数365-366
      */
     public int getDaysInYear() {
         int days;
@@ -312,18 +302,17 @@ public class ModelCalendarUtil {
 
     /**
      * 
-     * @Method Name: getDaysInYear
-     * @Description: 重载：获取指定年的天数
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年3月23日上午10:37:13
-     * @param addYear
-     * @return:
+     * <p>Method Name: getDaysInYear</p>
+     * <p>Description: 获取指定年的天数</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:43:43
+     * @version 2.0
+     * @param defYear 指定年份yyyy
+     * @return 天数365-366
      */
-    public int getDaysInYear(int addYear) {
+    public int getDaysInYear(int defYear) {
         int days;
-        int tYear = mYear + addYear;
+        int tYear = mYear + defYear;
         if (tYear % 400 == 0 || (tYear % 4 == 0 && tYear % 100 != 0)) {
             days = 366;
         } else {
@@ -331,7 +320,6 @@ public class ModelCalendarUtil {
         }
         return days;
     }
-
 
     public int getYear() {
         return mYear;

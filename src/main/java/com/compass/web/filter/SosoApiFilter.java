@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 
- * @Class Name: SosoApiFilter
- * @Description: SosoApi调试, App接口JSON过滤器，在web.xml中配置过滤
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年8月14日下午4:03:56
- * @version: 2.0
+ * <p>Class Name: SosoApiFilter</p>
+ * <p>Description: SosoApi App接口调试JSON过滤器，在web.xml中配置过滤</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午3:06:41
+ * @version 2.0
  */
 public class SosoApiFilter implements Filter {
 	

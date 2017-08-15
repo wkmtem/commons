@@ -7,69 +7,65 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 
- * @Class Name: SessionProvider
- * @Description: Session供应类接口（4个方法），配置xml实例化
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2016-10-18下午3:26:23
- * @version: 2.0
+ * <p>Class Name: SessionProvider</p>
+ * <p>Description: Session供应类接口（4个方法），配置xml实例化</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日上午11:48:40
+ * @version 2.0
  */
 public interface SessionProvider {
 
 	/**
 	 * 
-	 * @Method Name: setAttribute
-	 * @Description: 往Session设置值(调用者传入request,response)
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日下午12:54:49
-	 * @param request
-	 * @param response
-	 * @param name key：session名称
-	 * @param value: value：用户对象:必须实现序列化接口(调用者传入request,response)
+	 * <p>Method Name: setAttribute</p>
+	 * <p>Description: 设置session值</p>
+	 * @author wkm
+	 * @date 2017年8月15日上午11:49:02
+	 * @version 2.0
+	 * @param request 调用者传入
+	 * @param response 调用者传入
+	 * @param name 值名称
+	 * @param value 设置的值（必须实现序列化）
 	 */
 	void setAttribute(HttpServletRequest request, HttpServletResponse response, String name, Serializable value);
 	
 	/**
 	 * 
-	 * @Method Name: getAttribute
-	 * @Description: 从Session中取值(调用者传入request,response)
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日下午12:57:20
-	 * @param request
-	 * @param response
-	 * @param name
-	 * @return:
+	 * <p>Method Name: getAttribute</p>
+	 * <p>Description: 从session中取值</p>
+	 * @author wkm
+	 * @date 2017年8月15日上午11:51:49
+	 * @version 2.0
+	 * @param request 调用者传入
+	 * @param response 调用者传入
+	 * @param name 值名称
+	 * @return Serializable value的对象
 	 */
 	Serializable getAttribute(HttpServletRequest request, HttpServletResponse response, String name);
 	
 	/**
 	 * 
-	 * @Method Name: logout
-	 * @Description: 退出登陆(调用者传入request,response)
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日下午12:57:28
-	 * @param request
-	 * @param response:
+	 * <p>Method Name: logout</p>
+	 * <p>Description: 退出登录, 销毁session</p>
+	 * @author wkm
+	 * @date 2017年8月15日上午11:54:07
+	 * @version 2.0
+	 * @param request 调用者传入
+	 * @param response 调用者传入
 	 */
 	void logout(HttpServletRequest request, HttpServletResponse response);
 	
 	/**
 	 * 
-	 * @Method Name: getSessionId
-	 * @Description: 获取SessionID(调用者传入request,response)
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日下午12:57:43
-	 * @param request
-	 * @param response
-	 * @return:
+	 * <p>Method Name: getSessionId</p>
+	 * <p>Description: 获取sessionID</p>
+	 * @author wkm
+	 * @date 2017年8月15日上午11:54:50
+	 * @version 2.0
+	 * @param request 调用者传入
+	 * @param response 调用者传入
+	 * @return String sessionId
 	 */
 	String getSessionId(HttpServletRequest request, HttpServletResponse response);
 }

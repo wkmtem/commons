@@ -4,30 +4,30 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * @Class Name: NumberUtil
- * @Description:
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2016-11-29上午9:34:15
- * @version: 2.0
+ * 
+ * <p>Class Name: NumberUtil</p>
+ * <p>Description: 数字工具类</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午2:01:46
+ * @version 2.0
  */
 public class NumberUtil {
 
 	/**
 	 * 
-	 * @Method Name: getStrNumber
-	 * @Description: 格式化数字为定宽字符串(位数不足，前面补0)
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日下午12:01:36
-	 * @param num
-	 * @param formatPattern
-	 * @return
-	 * @throws Exception:
+	 * <p>Method Name: getStrNumber</p>
+	 * <p>Description: 格式化数字为定宽字符串(位数不足，前面补0)</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:02:00
+	 * @version 2.0
+	 * @param sourceNum 需格式化的原数字
+	 * @param formatPattern 格式化的位数
+	 * @return String targetFormatNum
+	 * @throws Exception
 	 */
-	public static String getStrNumber(Integer num, String formatPattern) throws Exception {
+	public static String getStrNumber(Integer sourceNum, String formatPattern) throws Exception {
 		NumberFormat numberFormat = new DecimalFormat(formatPattern);
-		return numberFormat.format(num);
+		return numberFormat.format(sourceNum);
 	}
 }

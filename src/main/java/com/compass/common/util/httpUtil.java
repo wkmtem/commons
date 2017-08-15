@@ -20,65 +20,63 @@ import com.google.common.base.Charsets;
 
 /**
  * 
- * @Class Name: httpUtil
- * @Description: 
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年8月13日上午11:43:02
- * @version: 2.0
+ * <p>Class Name: httpUtil</p>
+ * <p>Description: http工具类</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午2:08:50
+ * @version 2.0
  */
 public class httpUtil {
 	
 	/**
 	 * 
-	 * @Method Name: getIPaddress
-	 * @Description: 通过HttpServletRequest获取用户IP地址
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2016-11-27下午2:55:43
+	 * <p>Method Name: getIPaddress</p>
+	 * <p>Description: 通过HttpServletRequest获取IP地址</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:09:03
+	 * @version 2.0
 	 * @param request
-	 * @return
-	 * @throws Exception:
+	 * @return String ip
+	 * @throws Exception
 	 */
 	public static String getIPaddress(HttpServletRequest request) throws Exception {
 		
-		String ipUser = request.getHeader("x-forwarded-for");
+		String ip = request.getHeader("x-forwarded-for");
 		
-		if (ipUser == null || ipUser.length() == 0
-				|| "unknown".equalsIgnoreCase(ipUser)) {
-			ipUser = request.getHeader("Proxy-Client-IP");
+		if (ip == null || ip.length() == 0
+				|| "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("Proxy-Client-IP");
 		}
-		if (ipUser == null || ipUser.length() == 0
-				|| "unknown".equalsIgnoreCase(ipUser)) {
-			ipUser = request.getHeader("WL-Proxy-Client-IP");
+		if (ip == null || ip.length() == 0
+				|| "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("WL-Proxy-Client-IP");
 		}
-		if (ipUser == null || ipUser.length() == 0
-				|| "unknown".equalsIgnoreCase(ipUser)) {
-			ipUser = request.getHeader("HTTP_CLIENT_IP");
+		if (ip == null || ip.length() == 0
+				|| "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("HTTP_CLIENT_IP");
 		}
-		if (ipUser == null || ipUser.length() == 0
-				|| "unknown".equalsIgnoreCase(ipUser)) {
-			ipUser = request.getHeader("HTTP_X_FORWARDED_FOR");
+		if (ip == null || ip.length() == 0
+				|| "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
 		}
-		if (ipUser == null || ipUser.length() == 0
-				|| "unknown".equalsIgnoreCase(ipUser)) {
-			ipUser = request.getRemoteAddr();
+		if (ip == null || ip.length() == 0
+				|| "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getRemoteAddr();
 		}
-		return ipUser;
+		return ip;
 	}
 	
 	/**
 	 * 
-	 * @Method Name: sendGet
-	 * @Description: 向指定URL发送GET方法的请求
-	 * @params: 
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日上午11:51:09
+	 * <p>Method Name: sendGet</p>
+	 * <p>Description: 发送GET请求</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:13:34
+	 * @version 2.0
 	 * @param url 发送请求的URL
 	 * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式
-	 * @return: result 所代表远程资源的响应结果
+	 * @return String 远程资源响应结果
 	 */
     public static String sendGet(String url, String param) {
         String result = "";
@@ -117,18 +115,68 @@ public class httpUtil {
         }
         return result;
     }
+    
+    /**
+     * 
+     * <p>Method Name: sendGet</p>
+     * <p>Description: 发送GET请求</p>
+     * @author wkm
+     * @date 2017年8月15日下午2:17:44
+     * @version 2.0
+     * @param url 发送请求的URL
+     * @param param 请求参数
+     * @param headers 请求头参数
+     * @param timeout 超时时间
+     * @return String 远程资源响应结果
+     */
+    public static String sendGet(String url, String param, Map<String, String> headers, int timeout) {
+        String result = "";
+        BufferedReader in = null;
+        String reqUrl = url ;
+        try {
+            // 构造httprequest设置
+            RequestConfig config = RequestConfig.custom().setConnectTimeout(timeout)
+                    .setConnectionRequestTimeout(timeout).build();
+            HttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+            HttpGet htGet = new HttpGet(reqUrl);
+            // 添加http headers
+            if (headers != null && headers.size() > 0) {
+                for (String key : headers.keySet()) {
+                    htGet.addHeader(key, headers.get(key));
+                }
+            }
+            // 读取数据
+            HttpResponse r = client.execute(htGet);
+            in = new BufferedReader(new InputStreamReader(r.getEntity().getContent(), Charsets.UTF_8));
+            String line;
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+        } catch (Exception e) {
+            System.out.println("发送GET请求出现异常！" + e);
+            e.printStackTrace();
+        } finally {
+            try {
+                if (in != null) {
+                    in = null;
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return result;
+    }
 
     /**
 	 * 
-	 * @Method Name: sendPost
-	 * @Description: 向指定 URL发送POST方法的请求
-	 * @params: 
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月13日上午11:51:09
+	 * <p>Method Name: sendPost</p>
+	 * <p>Description: 发送POST请求</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:13:34
+	 * @version 2.0
 	 * @param url 发送请求的URL
 	 * @param param 请求参数，请求参数应该是 name1=value1&name2=value2 的形式
-	 * @return: result 所代表远程资源的响应结果
+	 * @return String 远程资源响应结果
 	 */
     public static String sendPost(String url, String param) {
         PrintWriter out = null;
@@ -179,56 +227,4 @@ public class httpUtil {
         }
         return result;
     }  
-    
-    /**
-     * 
-     * @Method Name: Get
-     * @Description: 向指定URL发送GET方法的请求
-     * @params:
-     * @author: wkm
-     * @version: 2.0
-     * @Create date: 2017年8月13日上午11:55:20
-     * @param url 发送请求的URL
-     * @param param httprequest请求参数
-     * @param headers 需要添加的httpheader参数
-     * @param timeout 请求超时时间
-     * @return: result 所代表远程资源的响应结果
-     */
-    public static String Get(String url, String param, Map<String, String> headers, int timeout) {
-        String result = "";
-        BufferedReader in = null;
-        String reqUrl = url ;
-        try {
-            // 构造httprequest设置
-            RequestConfig config = RequestConfig.custom().setConnectTimeout(timeout)
-                    .setConnectionRequestTimeout(timeout).build();
-            HttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
-            HttpGet htGet = new HttpGet(reqUrl);
-            // 添加http headers
-            if (headers != null && headers.size() > 0) {
-                for (String key : headers.keySet()) {
-                    htGet.addHeader(key, headers.get(key));
-                }
-            }
-            // 读取数据
-            HttpResponse r = client.execute(htGet);
-            in = new BufferedReader(new InputStreamReader(r.getEntity().getContent(), Charsets.UTF_8));
-            String line;
-            while ((line = in.readLine()) != null) {
-                result += line;
-            }
-        } catch (Exception e) {
-            System.out.println("发送GET请求出现异常！" + e);
-            e.printStackTrace();
-        } finally {
-            try {
-                if (in != null) {
-                    in = null;
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-        return result;
-    }
 }

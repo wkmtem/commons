@@ -20,13 +20,13 @@ import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 
 /**
  * 
- * @Class Name: JsonDateMutualComponent
- * @Description: Json日期转换工具类(双向转换)
- * 				 Json转Date，@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")配置在Date的get方法上(必须)
- * @author: wkmtem
- * @Company: www.compass.com
- * @Create date: 2016-10-19下午1:38:05
- * @version: 2.0
+ * <p>Class Name: JsonDateMutualComponent</p>
+ * <p>Description: Json与Date对象双向转换工具类</p>
+ * 				   Json转Date，@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")配置在Date的get方法上(必须)
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午3:07:41
+ * @version 2.0
  */
 public class JsonDateMutualComponent {
 
@@ -64,6 +64,16 @@ public class JsonDateMutualComponent {
 	}
 	
 
+	/**
+	 * 
+	 * <p>Method Name: toJson</p>
+	 * <p>Description: 对象转JSON</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午3:09:41
+	 * @version 2.0
+	 * @param obj对象
+	 * @return JSON
+	 */
 	public static String toJson(Object obj) {
 		try {
 			return mapper.writeValueAsString(obj);
@@ -73,6 +83,17 @@ public class JsonDateMutualComponent {
 	}
 	
 
+	/**
+	 * 
+	 * <p>Method Name: toObject</p>
+	 * <p>Description: JSON转对象</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午3:10:49
+	 * @version 2.0
+	 * @param json串
+	 * @param clazz 对象类
+	 * @return 对象
+	 */
 	public <T> T toObject(String json, Class<T> clazz) {
 		try {
 			return mapper.readValue(json, clazz);
@@ -82,6 +103,15 @@ public class JsonDateMutualComponent {
 	}
 
 	
+	/**
+	 * 
+	 * <p>Class Name: JsonDateSerializer</p>
+	 * <p>Description: JSON日期序列化</p>
+	 * <p>Company: www.compass.com</p> 
+	 * @author wkm
+	 * @date 2017年8月15日下午3:11:38
+	 * @version 2.0
+	 */
 	public static class JsonDateSerializer extends JsonSerializer<Date> {
 		private SimpleDateFormat dateFormat;
 

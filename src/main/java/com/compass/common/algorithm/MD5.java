@@ -4,12 +4,12 @@ import java.security.MessageDigest;
 
 /**
  * 
- * @Class Name: MD5
- * @Description: MD5工具类：无key，对字符串进行1次MD5加密
- * @author: wkm
- * @Company: www.compas.com
- * @Create date: 2016-11-23下午8:32:03
- * @version: 2.0
+ * <p>Class Name: MD5</p>
+ * <p>Description: MD5工具类</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午12:10:59
+ * @version 2.0
  */
 public class MD5 {
 	public static String getMD5(String sourceStr) {
@@ -39,13 +39,12 @@ public class MD5 {
 	
 	/**
 	 * 
-	 * @Method Name: get2MD5StrByTimeMillis
-	 * @Description: 根据时间戳获取2次MD5大写32位字符串
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月9日下午2:56:02
-	 * @return:
+	 * <p>Method Name: get2MD5StrByTimeMillis</p>
+	 * <p>Description: 根据时间戳获取2次MD5大写32位字符串</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午12:12:00
+	 * @version 2.0
+	 * @return String code 32bit
 	 */
 	public static String get2MD5StrByTimeMillis() {
 		return getMD5(getMD5(System.currentTimeMillis() + "")).toUpperCase();
@@ -54,13 +53,14 @@ public class MD5 {
 	
 	/**
 	 * 
-	 * @Method Name: get2MD5StrBySaltWithPwd
-	 * @Description: 根据散列盐和明文密码获取2次MD5大写32位字符串
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月9日下午2:56:02
-	 * @return:
+	 * <p>Method Name: get2MD5StrBySaltWithPwd</p>
+	 * <p>Description: 根据散列盐和明文密码获取2次MD5大写32位字符串</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午12:12:48
+	 * @version 2.0
+	 * @param salt 盐
+	 * @param pwd 密码
+	 * @return String code 32bit
 	 */
 	public static String get2MD5StrBySaltWithPwd(String salt, String pwd) {
 		return getMD5(getMD5(salt + pwd)).toUpperCase();

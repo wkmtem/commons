@@ -5,12 +5,12 @@ import java.util.LinkedHashMap;
 
 /**
  * 
- * @Class Name: LinkedMapCustom
- * @Description: 
- * @author: wkm
- * @Company: www.compass.com
- * @Create date: 2017年7月27日下午7:36:15
- * @version: 2.0
+ * <p>Class Name: LinkedMapCustom</p>
+ * <p>Description: 自定义LinkedMap类</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午12:14:11
+ * @version 2.0
  */
 public class LinkedMapCustom extends LinkedHashMap<String, Object> {
 	
@@ -31,9 +31,27 @@ public class LinkedMapCustom extends LinkedHashMap<String, Object> {
 	 */
 	private static final int MAP_SINGLE_CAPACITY = 1;
 	
+	/**
+	 * 
+	 * <p>Constructor Name: </p>
+	 * <p>Description: 禁用</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午12:15:01
+	 * @version 2.0
+	 */
 	private LinkedMapCustom() {
 	}
 	
+	/**
+	 * 
+	 * <p>Constructor Name: </p>
+	 * <p>Description: </p>
+	 * @author wkm
+	 * @date 2017年8月15日下午12:15:18
+	 * @version 2.0
+	 * @param initialCapacity 初始容量
+	 * @param loadFactor 扩容率
+	 */
 	private LinkedMapCustom(int initialCapacity, float loadFactor) {
         super(initialCapacity, loadFactor);
     }
@@ -91,10 +109,27 @@ public class LinkedMapCustom extends LinkedHashMap<String, Object> {
 		return this;
 	}
 	
+	/**
+	 * 
+	 * <p>Class Name: Builder</p>
+	 * <p>Description: 构建内部类</p>
+	 * <p>Company: www.compass.com</p> 
+	 * @author wkm
+	 * @date 2017年8月15日下午12:17:18
+	 * @version 2.0
+	 */
 	public static final class Builder {
 		
 		LinkedMapCustom map;
 		
+		/**
+		 * 
+		 * <p>Constructor Name: </p>
+		 * <p>Description: </p>
+		 * @author wkm
+		 * @date 2017年8月15日下午12:17:51
+		 * @version 2.0
+		 */
 		public Builder() {
 			map = new LinkedMapCustom(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
 		}
@@ -153,6 +188,15 @@ public class LinkedMapCustom extends LinkedHashMap<String, Object> {
 			return this;
 		}
 		
+		/**
+		 * 
+		 * <p>Method Name: builder</p>
+		 * <p>Description: </p>
+		 * @author wkm
+		 * @date 2017年8月15日下午12:18:17
+		 * @version 2.0
+		 * @return linkedMap
+		 */
 		public LinkedMapCustom builder() {
 			return map;
 		}

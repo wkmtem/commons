@@ -5,13 +5,12 @@ import java.util.UUID;
 
 /**
  * 
- * @Class Name: UUIDBuild
- * @Description: 32位UUID工具类：
- * 				  模拟了Hibernate的UUID的生成思路，将当前的时间戳、当前ip、随机串等当前信息组合在一起生成32位UUID
- * @author: wkm
- * @Company: www.compass.com 
- * @Create date: 2016-10-19下午16:55:04
- * @version: 2.0
+ * <p>Class Name: UUIDBuild</p>
+ * <p>Description: UUID工具类,模拟Hibernate的UUID生成规则--当前时间戳、当前ip、随机串等信息组合在一起生成UUID</p>
+ * <p>Company: www.compass.com</p> 
+ * @author wkm
+ * @date 2017年8月15日下午2:45:09
+ * @version 2.0
  */
 public class UUIDBuild {
 	
@@ -31,10 +30,29 @@ public class UUIDBuild {
 		IP = ipadd;
 	}
 
+	/**
+	 * 
+	 * <p>Method Name: getInstance</p>
+	 * <p>Description: 获取实例</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:46:44
+	 * @version 2.0
+	 * @return
+	 */
 	public static UUIDBuild getInstance() {
 		return uuidgen;
 	}
 
+	/**
+	 * 
+	 * <p>Method Name: toInt</p>
+	 * <p>Description: 字节转int</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:47:36
+	 * @version 2.0
+	 * @param bytes 字节数组
+	 * @return int
+	 */
 	public static int toInt(byte[] bytes) {
 		int result = 0;
 		for (int i = 0; i < 4; i++) {
@@ -80,6 +98,15 @@ public class UUIDBuild {
 		return (int) System.currentTimeMillis();
 	}
 
+	/**
+	 * 
+	 * <p>Method Name: generate</p>
+	 * <p>Description: 获取当前信息串</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:48:14
+	 * @version 2.0
+	 * @return String
+	 */
 	public String generate() {
 		return new StringBuffer(36).append(format(getIP())).append(sep)
 				.append(format(getJVM())).append(sep)
@@ -90,54 +117,51 @@ public class UUIDBuild {
 	
 	/**
 	 * 
-	 * @Method Name: getUUID
-	 * @Description: 获取一个UUID
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月11日下午12:02:40
-	 * @return:
+	 * <p>Method Name: getUUID</p>
+	 * <p>Description: 获取单个UUID</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:49:33
+	 * @version 2.0
+	 * @return String 大写UUID
 	 */
 	public static String getUUID() {
 		String s = UUID.randomUUID().toString();
-		return s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18)
-				+ s.substring(19, 23) + s.substring(24);
+		return (s.substring(0, 8) + s.substring(9, 13) + s.substring(14, 18)
+				+ s.substring(19, 23) + s.substring(24)).toUpperCase();
 	}
 	
 	/**
 	 * 
-	 * @Method Name: getUUID
-	 * @Description: 获取指定个数的UUID
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月11日下午12:02:55
-	 * @param number
-	 * @return:
+	 * <p>Method Name: getUUID</p>
+	 * <p>Description: 获取多个UUID</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:51:34
+	 * @version 2.0
+	 * @param number 指定个数
+	 * @return String数组
 	 */
 	public static String[] getUUID(int number) {
 		if (number < 1) {
 			return null;
 		}
-		String[] ss = new String[number];
-		for (int i = 0; i < ss.length; i++) {
-			ss[i] = getUUID();
+		String[] UUIDs = new String[number];
+		for (int i = 0; i < UUIDs.length; i++) {
+			UUIDs[i] = getUUID();
 		}
-		return ss;
+		return UUIDs;
 	}
 	
 	/**
 	 * 
-	 * @Method Name: getUUID64Bit
-	 * @Description: 获取一个64位的UUID
-	 * @params:
-	 * @author: wkm
-	 * @version: 2.0
-	 * @Create date: 2017年8月11日下午12:03:20
-	 * @return:
+	 * <p>Method Name: getUUID64Bit</p>
+	 * <p>Description: 获取单个64位的UUID</p>
+	 * @author wkm
+	 * @date 2017年8月15日下午2:52:58
+	 * @version 2.0
+	 * @return String UUID
 	 */
 	public static String getUUID64Bit() {
-		String[] uuids = getUUID(2);
-		return uuids[0] + uuids[1];
+		String[] UUIDs = getUUID(2);
+		return UUIDs[0] + UUIDs[1];
 	}
 }
