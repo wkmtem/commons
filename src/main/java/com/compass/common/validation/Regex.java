@@ -196,7 +196,7 @@ public class Regex {
 		 * [.]:'.'号时必选的； 如：dyh200896@163com是不合法的
 		 * p{Lower}{2,}小写字母，两个以上。如：dyh200896@163.c是不合法的
 		 */
-		String regex = "\\p{Alpha}\\w{2,15}[@][a-z0-9]{3,}[.]\\p{Lower}{2,}";
+		String regex = "^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$";
 		if (email.matches(regex)) { 
 			return true;
 	    }

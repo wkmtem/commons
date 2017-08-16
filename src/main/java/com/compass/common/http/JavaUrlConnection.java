@@ -1,4 +1,4 @@
-package com.compass.common.util;
+package com.compass.common.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,6 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -20,52 +18,14 @@ import com.google.common.base.Charsets;
 
 /**
  * 
- * <p>Class Name: httpUtil</p>
+ * <p>Class Name: JavaUrlConnection</p>
  * <p>Description: http工具类</p>
  * <p>Company: www.compass.com</p> 
  * @author wkm
  * @date 2017年8月15日下午2:08:50
  * @version 2.0
  */
-public class httpUtil {
-	
-	/**
-	 * 
-	 * <p>Method Name: getIPaddress</p>
-	 * <p>Description: 通过HttpServletRequest获取IP地址</p>
-	 * @author wkm
-	 * @date 2017年8月15日下午2:09:03
-	 * @version 2.0
-	 * @param request
-	 * @return String ip
-	 * @throws Exception
-	 */
-	public static String getIPaddress(HttpServletRequest request) throws Exception {
-		
-		String ip = request.getHeader("x-forwarded-for");
-		
-		if (ip == null || ip.length() == 0
-				|| "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0
-				|| "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0
-				|| "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("HTTP_CLIENT_IP");
-		}
-		if (ip == null || ip.length() == 0
-				|| "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-		}
-		if (ip == null || ip.length() == 0
-				|| "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-		return ip;
-	}
+public class JavaUrlConnection {
 	
 	/**
 	 * 
