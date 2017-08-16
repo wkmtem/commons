@@ -37,10 +37,10 @@ public enum ErrorMsgEnum {
 	EM23("EM23", "用户ID不能为空"),
 	EM24("EM24", "用户Token不能为空"),
 	EM25("EM25", "用户ID不存在"),
-	EM26("EM26", ""),
-	EM27("EM27", ""),
-	EM28("EM28", "用户登录超时"),
-	EM29("EM29", ""),
+	EM26("EM26", "用户登录超时"),
+	EM27("EM27", "激活成功"),
+	EM28("EM28", "激活失败"),
+	EM29("EM29", "激活超时"),
 	EM30("EM30", "");
 
 	public String code;
