@@ -2,14 +2,14 @@ package com.compass.common.enums;
 
 /**
  * 
- * <p>Class Name: ErrorMsgEnum</p>
- * <p>Description: 错误代码描述枚举</p>
+ * <p>Class Name: RetCodeMsgEnum</p>
+ * <p>Description: 响应码描述枚举</p>
  * <p>Company: www.compass.com</p> 
  * @author wkm
  * @date 2017年8月15日下午12:23:40
  * @version 2.0
  */
-public enum ErrorMsgEnum {
+public enum RetCodeMsgEnum {
 	
 	EM000("EM000", ""),
 	EM001("EM001", "企业账号不能为空"),
@@ -51,7 +51,7 @@ public enum ErrorMsgEnum {
 	public String code;
 	public String value;
 	
-	ErrorMsgEnum(String code, String value){
+	RetCodeMsgEnum(String code, String value){
 		this.code = code;
 		this.value = value;
 	}
