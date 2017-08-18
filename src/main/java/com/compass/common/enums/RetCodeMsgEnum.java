@@ -39,14 +39,15 @@ public enum RetCodeMsgEnum {
 	RC025("RC025", "电子邮箱格式错误"),
 	RC026("RC026", "MD5激活码不能为空"),
 	RC027("RC027", "激活码已失效"),
-	RC028("RC028", ""),
+	RC028("RC028", "激活码错误"),
 	RC029("RC029", ""),
 	RC030("RC030", ""),
 	RC031("RC031", ""),
 	RC032("RC032", ""),
 	RC033("RC033", ""),
 	RC034("RC034", ""),
-	RC035("RC035", "");
+	RC035("RC035", ""),
+	RC500("RC500", "请联系系统管理员");
 
 	public String code;
 	public String value;
